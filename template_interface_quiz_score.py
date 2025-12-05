@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+template_quiz_scores = """<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Form</class>
  <widget class="QWidget" name="Form">
@@ -176,3 +176,4 @@ QPushButton:pressed {
  <resources/>
  <connections/>
 </ui>
+"""

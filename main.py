@@ -118,6 +118,4 @@ if stations:
         ''', stations)
     conn.commit()
 
-cursor.execute('SELECT * FROM arctic_centres')
-print(cursor.fetchall())
 conn.close()
