@@ -25,7 +25,7 @@ class Encyclopedia(QMainWindow):
         f = io.StringIO(template_main)
         uic.loadUi(f, self)
 
-        self.setWindowTitle("Чтоб я сдох")
+        self.setWindowTitle("Интерактивная карта Антарктики")
         self.btn_style_animal()
         self.btn_style_plant()
         self.btn_style_station()
@@ -278,6 +278,7 @@ class Change_nature(QWidget):
     def __init__(self, who):
         try:
             super().__init__()
+            self.setWindowTitle('Информация')
             f = io.StringIO(template_nature)
             uic.loadUi(f, self)
             self.setGeometry(500, 200, 740, 438)
@@ -326,6 +327,7 @@ class Change_station(QWidget):
     def __init__(self, who):
         try:
             super().__init__()
+            self.setWindowTitle('Информация')
             f = io.StringIO(template_station)
             uic.loadUi(f, self)
 
@@ -352,10 +354,10 @@ class Change_station(QWidget):
 
             self.STATIONS = {
                 1: {"name": "McMurdo", "coords": (-77.85, 166.67)},
-                2: {"name": "Amundsen-Scott", "coords": (-90.00, 0.00)},
+                2: {"name": "Amundsen-Scott", "coords": (-84.99, 0.00)},
                 3: {"name": "Vostok", "coords": (-78.46, 106.84)},
                 4: {"name": "Esperanza", "coords": (-63.40, -57.00)},
-                5: {"name": "Union Glacier", "coords": (-79.77, -82.91)}
+                5: {"name": "Mouson", "coords": (-67.60, 62.87)}
             }
 
             self.YANDEX_API_KEY = "46cd6916-0196-4170-98ae-1f0350d88d67"
@@ -496,6 +498,7 @@ class Way(QDialog):
     def __init__(self):
         try:
             super().__init__()
+            self.setWindowTitle('Выбрать маршрут')
             f = io.StringIO(template_ways)
             uic.loadUi(f, self)
 
@@ -521,7 +524,7 @@ class Fakt(QWidget):
             f = io.StringIO(template_fact)
             uic.loadUi(f, self)
             self.generate_button.pressed.connect(self.interesting_facts)
-            self.setWindowTitle("Interesting Facts")
+            self.setWindowTitle("Интересные факты")
             self.ai_answer_list = [1, 2, 3]
         except Exception as e:
             print(f"Ошибка восстановления: {e}")
@@ -542,6 +545,7 @@ class QuizWindow(QWidget):
         super().__init__()
         f = io.StringIO(template_quiz)
         uic.loadUi(f, self)
+        self.setWindowTitle('Квиз')
 
         self.correct_buttons = {
             "answer1_3", "answer2_3", "answer3_4", "answer4_2", "answer5_2"
@@ -595,6 +599,7 @@ class ScoreWindow(QWidget):
         super().__init__()
         f = io.StringIO(template_quiz_scores)
         uic.loadUi(f, self)
+        self.setWindowTitle('Итоги квиза')
         self.quiz_window = quiz_window
 
         self.back_btn.clicked.connect(self.exit_app)
