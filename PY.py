@@ -84,25 +84,25 @@ class Encyclopedia(QMainWindow):
         self.animal1.setStyleSheet("""QPushButton {
                 background-color: transparent;
                 border: none;}""")
-        pixmap = QPixmap('олень.png')
+        pixmap = QPixmap('fish.png')
         scaled_pixmap = pixmap.scaled(QSize(60, 60), Qt.AspectRatioMode.IgnoreAspectRatio,
                                       Qt.TransformationMode.SmoothTransformation)
         icon = QIcon(scaled_pixmap)
         self.animal1.setIcon(icon)
         self.animal1.setIconSize(QSize(140, 140))
-        self.animal1.setProperty("animal_name", "Олень северный")
+        self.animal1.setProperty("animal_name", "Антарктическая треска")
         self.animal1.clicked.connect(self.btn)
 
         self.animal2.setStyleSheet("""QPushButton {
                 background-color: transparent;
                 border: none;}""")
-        pixmap = QPixmap('бык.png')
+        pixmap = QPixmap('bird.png')
         scaled_pixmap = pixmap.scaled(QSize(60, 60),Qt.AspectRatioMode.IgnoreAspectRatio,
                                       Qt.TransformationMode.SmoothTransformation)
         icon = QIcon(scaled_pixmap)
         self.animal2.setIcon(icon)
         self.animal2.setIconSize(QSize(140, 140))
-        self.animal2.setProperty("animal_name", "Мускусный бык")
+        self.animal2.setProperty("animal_name", "Альбатрос")
         self.animal2.clicked.connect(self.btn)
 
         self.animal3.setStyleSheet("""QPushButton {
@@ -126,19 +126,19 @@ class Encyclopedia(QMainWindow):
         icon = QIcon(scaled_pixmap)
         self.animal4.setIcon(icon)
         self.animal4.setIconSize(QSize(140, 140))
-        self.animal4.setProperty("animal_name", "Морж")
+        self.animal4.setProperty("animal_name", "Тюлень")
         self.animal4.clicked.connect(self.btn)
 
         self.animal5.setStyleSheet("""QPushButton {
                 background-color: transparent;
                 border: none;}""")
-        pixmap = QPixmap('песец.png')
+        pixmap = QPixmap('whale.png')
         scaled_pixmap = pixmap.scaled(QSize(60, 60),Qt.AspectRatioMode.IgnoreAspectRatio,
                                       Qt.TransformationMode.SmoothTransformation)
         icon = QIcon(scaled_pixmap)
         self.animal5.setIcon(icon)
         self.animal5.setIconSize(QSize(140, 140))
-        self.animal5.setProperty("animal_name", "Песец")
+        self.animal5.setProperty("animal_name", "Синий кит")
         self.animal5.clicked.connect(self.btn)
 
     def btn_style_plant(self):
@@ -533,7 +533,6 @@ class Fakt(QWidget):
         with GigaChat(credentials="MDE5YWVkODctZTkxYS03YWRlLThiZDQtNDdkOTIxY2E3OWM4OjBkYjdmZjY5LTJiZjAtNDg3Ny1hMTgyLTIyMDg1NzU3Njg0Yw==",
                 verify_ssl_certs=False, model='GigaChat-Pro') as giga:
             response = giga.chat("Составь 3 интересных факта об Антарктике в одно предложение без кавычек и других лишних знаков. Раздели их новой строкой")
-            print(response.choices[0].message.content)
             self.ai_answer_list = response.choices[0].message.content.split('\n')
             self.first_fact.setText(self.ai_answer_list[0].capitalize())
             self.second_fact.setText(self.ai_answer_list[1].capitalize())
